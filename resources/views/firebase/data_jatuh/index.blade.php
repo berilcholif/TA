@@ -1,6 +1,7 @@
 @extends('firebase.app')
 @section('content')
 <div class="container">
+    
 <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0" > -->
     <div class="row">
         <div class="col-md-12">
@@ -11,25 +12,28 @@
             <div class="card" >
                 <div class="card-header">
                     <h4>DATA JATUH
-                        <a href="{{ url('add-data')}}" class="btn btn-sm btn-primary float-end">Add</a>
+                        {{-- <a href="{{ url('add-data')}}" class="btn btn-sm btn-primary float-end">Add</a> --}}
                     </h4>
                 </div>
                
 
                 <table class="table table-bordered">
                     <thead><tr>
-                        <th class="text-center">pasien</th>
+                        <th class="text-center">NO</th>
                         <th class="text-center">PASIEN JATUH</th>
+                        <th class="text-center">DATE</th>
                     </tr></thead>
               
                 <tbody>
-                @php $i=1; @endphp
+                @php $i=1;  @endphp
+                
                 @forelse ($data_jatuh as $key => $item)
                   <tr><td class="text-center">{{ $i++}}</td>
-                    <td class="text-center">{{ $item['djatuh']}}</td>
+                    <td class="text-center">{{ $item['mpu6050']}}</td>
+                    <td class="text-center">{{ $item['date']}}</td>
                 </tr>@empty
                 
-                    @endforelse
+                   @endforelse
                    </tbody>
             </div>
         </div>
@@ -38,3 +42,10 @@
 
 
 @endsection
+{{-- @section('scripts')
+<script>
+     setInterval(() => {
+    'data_jatuh'();
+  }, 1000);
+  
+</script> --}}

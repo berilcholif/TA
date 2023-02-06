@@ -16,7 +16,7 @@
                         @csrf
                         <div class="form-froup mb-3">
                             <label> Data Jatuh</label>
-                            <input type="text" name="Data_Jatuh" class="form-control">
+                            <input type="text" name="data_Jatuh" class="form-control">
                         </div>
                         <div class="form-froup mb-3">
                          <button type="submit" class="btn btn-primary">save</button>

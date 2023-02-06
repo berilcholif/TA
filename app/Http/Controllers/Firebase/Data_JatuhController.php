@@ -15,7 +15,8 @@ class Data_JatuhController extends Controller
     }
     public function index()
     {
-        $data_jatuh = $this->database->getReference($this->tablename)->getValue();
+        $data_jatuh = $this->database->getReference($this->tablename)->orderByKey()->limitToLast(50)->getValue();
+        
         return view('firebase.data_jatuh.index', compact('data_jatuh'));
     }
     public function create()
@@ -26,7 +27,7 @@ class Data_JatuhController extends Controller
     {
         $ref_tablename = 'data_jatuh';
         $postData = [
-            'djatuh' => $request->Data_Jatuh,
+            'djatuh' => $request->data_Jatuh,
         ];
         $postRef = $this->database->getReference( $this->tablename)->push($postData);
     if($postRef){
